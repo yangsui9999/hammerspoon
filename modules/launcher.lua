@@ -8,16 +8,19 @@ local fnutils = require "hs.fnutils"
 grid.setMargins({0, 0})
 
 applist = {
-    {shortcut = 'I',appname = 'IntelliJ IDEA CE'},
+    {shortcut = 'M',appname = 'mweb'},
     {shortcut = 'C',appname = 'Google Chrome'},
-    {shortcut = 'K',appname = 'iTerm'},
-    {shortcut = 'D',appname = 'Finder'},
+    {shortcut = 'T',appname = 'iTerm'},
+    {shortcut = 'F',appname = 'Finder'},
+    {shortcut = 'V',appname = 'Visual Studio Code'},
+    {shortcut = 'P',appname = 'Pycharm'},
+    {shortcut = 'W',appname = 'Wechat'},
+    {shortcut = 'D',appname = 'DataGrip'},
     {shortcut = 'Y',appname = 'Activity Monitor'},
-    {shortcut = 'P',appname = 'System Preferences'},
 }
 
 fnutils.each(applist, function(entry)
-    hotkey.bind({'ctrl', 'alt', 'cmd'}, entry.shortcut, entry.appname, function()
+    hotkey.bind({'alt'}, entry.shortcut, entry.appname, function()
         application.launchOrFocus(entry.appname)
         -- toggle_application(applist[i].appname)
     end)

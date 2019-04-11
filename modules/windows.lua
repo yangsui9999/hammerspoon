@@ -15,7 +15,7 @@ local mouse = require "hs.mouse"
 window.animationDuration = 0
 
 -- left half
-hotkey.bind(hyper, "Left", function()
+hotkey.bind(hyperSimpleCtrl, "H", function()
   if window.focusedWindow() then
     window.focusedWindow():moveToUnit(layout.left50)
   else
@@ -24,52 +24,52 @@ hotkey.bind(hyper, "Left", function()
 end)
 
 -- right half
-hotkey.bind(hyper, "Right", function()
+hotkey.bind(hyperSimpleCtrl, "L", function()
   window.focusedWindow():moveToUnit(layout.right50)
 end)
 
 -- top half
-hotkey.bind(hyper, "Up", function()
+hotkey.bind(hyperSimpleCtrl, "K", function()
   window.focusedWindow():moveToUnit'[0,0,100,50]'
 end)
 
 -- bottom half
-hotkey.bind(hyper, "Down", function()
+hotkey.bind(hyperSimpleCtrl, "J", function()
   window.focusedWindow():moveToUnit'[0,50,100,100]'
 end)
 
 -- left top quarter
-hotkey.bind(hyperAlt, "Left", function()
+hotkey.bind(hyperSimpleCtrl, "Y", function()
   window.focusedWindow():moveToUnit'[0,0,50,50]'
 end)
 
 -- right bottom quarter
-hotkey.bind(hyperAlt, "Right", function()
+hotkey.bind(hyperSimpleCtrl, "O", function()
   window.focusedWindow():moveToUnit'[50,50,100,100]'
 end)
 
 -- right top quarter
-hotkey.bind(hyperAlt, "Up", function()
+hotkey.bind(hyperSimpleCtrl, "U", function()
   window.focusedWindow():moveToUnit'[50,0,100,50]'
 end)
 
 -- left bottom quarter
-hotkey.bind(hyperAlt, "Down", function()
+hotkey.bind(hyperSimpleCtrl, "I", function()
   window.focusedWindow():moveToUnit'[0,50,50,100]'
 end)
 
 -- full screen
-hotkey.bind(hyper, 'F', function() 
+hotkey.bind(hyperSimpleCtrl, 'F', function() 
   window.focusedWindow():toggleFullScreen()
 end)
 
 -- center window
-hotkey.bind(hyper, 'C', function() 
+hotkey.bind(hyperSimpleCtrl, 'C', function() 
   window.focusedWindow():centerOnScreen()
 end)
 
 -- maximize window
-hotkey.bind(hyper, 'M', function() toggle_maximize() end)
+hotkey.bind(hyperSimpleCtrl, 'M', function() toggle_maximize() end)
 
 -- defines for window maximize toggler
 local frameCache = {}

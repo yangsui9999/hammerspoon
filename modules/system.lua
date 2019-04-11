@@ -2,7 +2,7 @@ local hotkey = require "hs.hotkey"
 local caffeinate = require "hs.caffeinate"
 local audiodevice = require "hs.audiodevice"
 
-hotkey.bind(hyper, "L", function()
+hotkey.bind(hyperSimpleAlt, "L", function()
   caffeinate.lockScreen()
   -- caffeinate.startScreensaver()
 end)
