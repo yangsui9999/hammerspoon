@@ -8,12 +8,13 @@ local fnutils = require "hs.fnutils"
 grid.setMargins({0, 0})
 
 applist = {
+    {shortcut = '1',appname = 'Pycharm'},
+    {shortcut = 'G',appname = 'GoLand'},
     {shortcut = 'M',appname = 'mweb'},
     {shortcut = 'C',appname = 'Google Chrome'},
     {shortcut = 'T',appname = 'iTerm'},
     {shortcut = 'F',appname = 'Finder'},
     {shortcut = 'V',appname = 'Visual Studio Code'},
-    {shortcut = 'P',appname = 'Pycharm'},
     {shortcut = 'W',appname = 'Wechat'},
     {shortcut = 'D',appname = 'DataGrip'},
     {shortcut = 'Y',appname = 'Activity Monitor'},
