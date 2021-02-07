@@ -9,6 +9,7 @@ grid.setMargins({0, 0})
 
 applist = {
     {shortcut = '1',appname = 'Pycharm'},
+    {shortcut = '2',appname = 'TickTick'},
     {shortcut = 'G',appname = 'GoLand'},
     {shortcut = 'M',appname = 'mweb'},
     {shortcut = 'C',appname = 'Google Chrome'},
@@ -16,8 +17,11 @@ applist = {
     {shortcut = 'F',appname = 'Finder'},
     {shortcut = 'V',appname = 'Visual Studio Code'},
     {shortcut = 'W',appname = 'Wechat'},
-    {shortcut = 'D',appname = 'DataGrip'},
+    {shortcut = 'D',appname = 'TablePlus'},
     {shortcut = 'Y',appname = 'Activity Monitor'},
+    {shortcut = 'E',appname = '企业微信'},
+    {shortcut = 'Q',appname = 'QQ'},
+    {shortcut = 'S',appname = 'SmartGit'},
 }
 
 fnutils.each(applist, function(entry)
