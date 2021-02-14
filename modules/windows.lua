@@ -167,3 +167,81 @@ hotkey.bind(hyperShift, "3", function()
   local win = window.focusedWindow()
   moveto(win, 3)
 end)
+
+local maximizeApps = {
+    "/Applications/iTerm.app",
+    "/Applications/Google Chrome.app",
+    "/System/Library/CoreServices/Finder.app",
+}
+local windowCreateFilter = hs.window.filter.new():setDefaultFilter()
+windowCreateFilter:subscribe(
+    hs.window.filter.windowCreated,
+    function (win, ttl, last)
+        for index, value in ipairs(maximizeApps) do
+            if win:application():path() == value then
+                win:maximize()
+                return true
+            end
+        end
+end)
+
+
+-- Power operation.
+caffeinateOnIcon = [[ASCII:
+.....1a..........AC..........E
+..............................
+......4.......................
+1..........aA..........CE.....
+e.2......4.3...........h......
+..............................
+..............................
+.......................h......
+e.2......6.3..........t..q....
+5..........c..........s.......
+......6..................q....
+......................s..t....
+.....5c.......................
+]]
+
+caffeinateOffIcon = [[ASCII:
+.....1a.....x....AC.y.......zE
+..............................
+......4.......................
+1..........aA..........CE.....
+e.2......4.3...........h......
+..............................
+..............................
+.......................h......
+e.2......6.3..........t..q....
+5..........c..........s.......
+......6..................q....
+......................s..t....
+...x.5c....y.......z..........
+]]
+local caffeinateTrayIcon = hs.menubar.new()
+
+local function caffeinateSetIcon(state)
+    caffeinateTrayIcon:setIcon(state and caffeinateOnIcon or caffeinateOffIcon)
+
+    if state then
+        caffeinateTrayIcon:setTooltip("Sleep never sleep")
+    else
+        caffeinateTrayIcon:setTooltip("System will sleep when idle")
+    end
+end
+
+local function toggleCaffeinate()
+    local sleepStatus = hs.caffeinate.toggle("displayIdle")
+    if sleepStatus then
+        hs.notify.new({title="HammerSpoon", informativeText="System never sleep"}):send()
+    else
+        hs.notify.new({title="HammerSpoon", informativeText="System will sleep when idle"}):send()
+    end
+
+    caffeinateSetIcon(sleepStatus)
+end
+
+hs.hotkey.bind(hyperSimpleCtrl, "[", toggleCaffeinate)
+caffeinateTrayIcon:setClickCallback(toggleCaffeinate)
+caffeinateSetIcon(sleepStatus)
+

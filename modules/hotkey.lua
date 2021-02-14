@@ -4,3 +4,4 @@ hyperSimpleCtrl = {"ctrl"}
 hyperShift = {"alt", "shift"}
 hyperCtrl = {"alt", "ctrl"}
 hyperAlt = {"ctrl", "alt", "shift"}
+hyperCmd = {"ctrl", "cmd"}
