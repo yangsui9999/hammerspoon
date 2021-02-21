@@ -11,6 +11,7 @@ applist = {
     {shortcut = '1',appname = 'Pycharm'},
     {shortcut = '2',appname = 'TickTick'},
     {shortcut = '3',appname = 'wpsoffice'},
+    {shortcut = '4',appname = 'Typora'},
     {shortcut = 'G',appname = 'GoLand'},
     {shortcut = 'M',appname = 'mweb'},
     {shortcut = 'C',appname = 'Google Chrome'},
@@ -50,3 +51,24 @@ function toggle_application(_app)
         end
     end
 end
+
+-- https://github.com/kkamdooong/hammerspoon-control-hjkl-to-arrow
+-- for hhkb just remapping control+hjkl to arrow keys.
+local function pressFn(mods, key)
+	if key == nil then
+		key = mods
+		mods = {}
+	end
+
+	return function() hs.eventtap.keyStroke(mods, key, 1000) end
+end
+
+local function remap(mods, key, pressFn)
+	hs.hotkey.bind(mods, key, pressFn, nil, pressFn)	
+end
+
+remap({'ctrl'}, 'h', pressFn('left'))
+remap({'ctrl'}, 'j', pressFn('down'))
+remap({'ctrl'}, 'k', pressFn('up'))
+remap({'ctrl'}, 'l', pressFn('right'))
+
